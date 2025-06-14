@@ -8,7 +8,7 @@ tests = [
     ('aabbccdd', True),
     ('iiiillll', True),
     ('iixiillll', True),
-    ('iiillll', False),
+    ('iiillll', True),  # wrong case in non-improved version
 ]
 
 
@@ -42,3 +42,6 @@ if __name__ == '__main__':
     for input, output in tests:
         result = main(input)
         assert result == output
+        improved_result = improved(input)
+        print(input, output, improved_result)
+        assert improved_result == output
